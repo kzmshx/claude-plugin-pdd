@@ -6,7 +6,18 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Check if this is a feature branch (not main/master). If so, check if PLAN.md exists at .claude/pdd/{branch}/PLAN.md (or $PDD_WORKSPACE_DIR/{branch}/PLAN.md if set). If no PLAN exists, briefly note that /pdd:plan is available for planning."
+            "prompt": "Check if this is a feature branch (not main/master). If so, check if PLAN.md exists at .claude/pdd/{branch}/PLAN.md (or $PDD_WORKSPACE_DIR/{branch}/PLAN.md if set). If PLAN exists, briefly summarize its goal and current tasks. If no PLAN exists, briefly note that /pdd:plan is available for planning."
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Context is about to be compacted. If significant discoveries, decisions, or progress were made in this session, suggest running /pdd:notes to preserve them before context is lost."
           }
         ]
       }
@@ -17,7 +28,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Review this session. If significant discoveries, unexpected issues, or important technical decisions were made during implementation, suggest running /pdd:notes to capture them before ending."
+            "prompt": "Review this session. If any of the following occurred, suggest running /pdd:notes: unexpected issues discovered, technical decisions made, approach deviated from plan, significant debugging performed, or work is incomplete with important context to preserve."
           }
         ]
       }
