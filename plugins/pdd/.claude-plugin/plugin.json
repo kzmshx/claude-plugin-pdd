@@ -3,6 +3,11 @@
   "description": "Plan-Driven Development plugin for Claude Code. Manage PLAN.md and NOTES.md for AI-assisted development workflows.",
   "version": "0.1.0",
   "author": {
-    "name": "kzmshx"
-  }
+    "name": "kzmshx",
+    "url": "https://github.com/kzmshx"
+  },
+  "homepage": "https://github.com/kzmshx/claude-plugins/tree/main/plugins/pdd",
+  "repository": "https://github.com/kzmshx/claude-plugins",
+  "license": "MIT",
+  "keywords": ["planning", "notes", "workflow", "session", "pdd"]
 }
