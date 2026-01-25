@@ -13,9 +13,11 @@ This plugin provides commands and automatic workflow integration.
 
 ## Features
 
-- **Commands**: `/pdd:plan` and `/pdd:notes` for explicit control
-- **Skill**: Claude automatically suggests PDD workflow when appropriate
-- **Hook**: Session start checks for existing PLAN.md
+- **Skills**: `/pdd:plan` and `/pdd:notes` - Claude can also suggest these when appropriate
+- **Hooks**:
+  - SessionStart: Checks for existing PLAN.md and summarizes current state
+  - PreCompact: Suggests saving NOTES before context is lost
+  - Stop: Suggests saving NOTES if significant work was done
 
 ## Installation
 
@@ -31,7 +33,7 @@ Then install the plugin:
 /plugin install pdd@kzmshx
 ```
 
-## Commands
+## Skills
 
 ### /pdd:plan
 
@@ -93,6 +95,7 @@ Set environment variables in `.claude/settings.json`:
 - Implementation reveals unknowns that PLAN couldn't anticipate
 - NOTES bridge sessions by preserving discoveries
 - Human decides when to create NOTES; AI writes them
+- Verification criteria in PLAN enable self-checking feedback loops
 
 ## License
 
