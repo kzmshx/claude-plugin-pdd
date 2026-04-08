@@ -21,17 +21,6 @@
           }
         ]
       }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "prompt",
-            "prompt": "Review this session. If any of the following occurred, suggest running /pdd:notes: unexpected issues discovered, technical decisions made, approach deviated from plan, significant debugging performed, or work is incomplete with important context to preserve."
-          }
-        ]
-      }
     ]
   }
 }

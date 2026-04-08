@@ -17,7 +17,6 @@ This plugin provides commands and automatic workflow integration.
 - **Hooks**:
   - SessionStart: Checks for existing PLAN.md and summarizes current state
   - PreCompact: Suggests saving NOTES before context is lost
-  - Stop: Suggests saving NOTES if significant work was done
 
 ## Installation
 

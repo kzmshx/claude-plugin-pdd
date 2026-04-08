@@ -1,7 +1,7 @@
 {
   "name": "pdd",
   "description": "Plan-Driven Development plugin for Claude Code. Manage PLAN.md and NOTES.md for AI-assisted development workflows.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "kzmshx",
     "url": "https://github.com/kzmshx"
