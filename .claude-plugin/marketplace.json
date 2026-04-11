@@ -12,24 +12,12 @@
     {
       "name": "pdd",
       "source": "./plugins/pdd",
-      "description": "Plan-Driven Development plugin for Claude Code. Manage PLAN.md and NOTES.md for AI-assisted development workflows.",
-      "version": "0.1.0",
-      "author": {
-        "name": "kzmshx"
-      },
-      "category": "productivity",
-      "keywords": ["planning", "notes", "workflow", "productivity", "development"]
+      "description": "Plan-Driven Development plugin for Claude Code. Manage PLAN.md and NOTES.md for AI-assisted development workflows."
     },
     {
       "name": "marksman-lsp",
       "source": "./plugins/marksman-lsp",
-      "description": "Markdown language server for Claude Code. Provides go-to-definition, find references, completion, and diagnostics for markdown files with wiki-link support.",
-      "version": "0.1.0",
-      "author": {
-        "name": "kzmshx"
-      },
-      "category": "language-server",
-      "keywords": ["markdown", "lsp", "wiki-links", "documentation", "zettelkasten"]
+      "description": "Markdown language server for Claude Code. Provides go-to-definition, find references, completion, and diagnostics for markdown files with wiki-link support."
     }
   ]
 }

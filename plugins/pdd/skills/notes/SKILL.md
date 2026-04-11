@@ -51,30 +51,71 @@ NOTES capture what was discovered during implementation that wasn't anticipated 
 
 ## Structure
 
-Use this format for consistency and searchability:
+Always start with `# NOTES - {brief description}`. Choose and adapt sections based on the session's nature:
+
+- Implementation: Accomplishments, Key Files Modified, Next Steps
+- Debugging: Problem, Root Cause, Solution, Pitfalls
+- Investigation/Research: Findings, Implications, Open Questions
+- Design Decision: Context, Options Considered, Decision, Rationale
+
+### Examples
+
+**Implementation session:**
 
 ```markdown
-# NOTES - {brief description}
+# NOTES - Add user authentication flow
 
 ## Accomplishments
-- What was completed and why (include decision rationale)
-
-## Lessons Learned
-- What worked well
-- What didn't work (failed approaches to avoid)
-- Unexpected behaviors discovered
-
-## Next Steps
-- [ ] Concrete next actions
-- [ ] Open tasks remaining
+- Implemented JWT-based auth middleware
+- Chose bcrypt over argon2 for password hashing (simpler dependency, sufficient for our scale)
 
 ## Key Files Modified
-- `path/to/file.ts` - brief description of change
+- `src/middleware/auth.ts` - JWT verification middleware
+- `src/routes/login.ts` - login endpoint
 
-## Open Questions
-- Unresolved issues or decisions needed
+## Next Steps
+- [ ] Add refresh token rotation
+- [ ] Rate limiting on login endpoint
 ```
 
-Sections can be omitted if not applicable. Keep each section concise and factual.
+**Debugging session:**
+
+```markdown
+# NOTES - Fix intermittent timeout on /api/export
+
+## Problem
+- Export endpoint times out on datasets > 10k rows
+
+## Root Cause
+- N+1 query in `buildExportRows()` — each row triggered a separate lookup
+
+## Solution
+- Batched lookups with `WHERE id IN (...)`, reduced queries from O(n) to O(1)
+
+## Pitfalls
+- Initial fix with `Promise.all` hit connection pool limit — sequential batching was needed
+```
+
+**Design decision session:**
+
+```markdown
+# NOTES - Migration strategy for auth middleware
+
+## Context
+- Current middleware stores session tokens in cookies, non-compliant with new policy
+
+## Options Considered
+1. Patch existing middleware — fast but fragile
+2. Full rewrite with new token store — clean but risky during freeze
+3. Adapter layer over existing code — incremental, testable
+
+## Decision
+- Option 3: adapter layer
+
+## Rationale
+- Allows incremental rollout behind feature flag during merge freeze
+```
+
+Sections can be omitted or combined freely. Keep each section concise and factual.
 
 NOTES are meant to bridge sessions. They should enable resuming work without re-explaining context.
